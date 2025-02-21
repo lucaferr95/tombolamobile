@@ -49,13 +49,18 @@ h1 {
 
 #tombolaContainer {
   display: grid;
-  grid-template-columns: repeat(9, 1fr);
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(50px, 1fr)
+  ); /* Crea una griglia responsiva */
   gap: 10px;
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
   padding: 10px;
   border: 2px solid #000000;
+
+  min-height: 300px; /* Altezza minima per vedere la griglia */
 }
 
 h2 {
