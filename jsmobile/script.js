@@ -1,16 +1,18 @@
 // Array per tenere traccia dei numeri estratti
 let numeriEstratti = [];
 let numeriEstrattiCount = 0;
+let numeriCartella = []; // Variabile per memorizzare i numeri della cartella
 
 // Funzione per creare la cartella della tombola (solo una cartella)
 const createCartella = () => {
   const cartellaContainer = document.getElementById("cartelleContainer");
 
-  // Creiamo una cartella con 5 numeri
+  // Creiamo una cartella con 3 numeri
   const cartella = document.createElement("div");
   cartella.classList.add("cartella");
 
-  let numeriCartella = [];
+  numeriCartella = []; // Reset della cartella
+
   while (numeriCartella.length < 3) {
     const numeroCasuale = Math.floor(Math.random() * 90) + 1;
     if (!numeriCartella.includes(numeroCasuale)) {
@@ -109,6 +111,44 @@ const randomNumbers = () => {
     dot.classList.add("dot");
     cellaCartella.appendChild(dot);
   }
+
+  // Controlla se la cartella è completa
+  checkVictory();
+};
+
+// Funzione che controlla se la cartella è completa
+const checkVictory = () => {
+  const completedNumbers = numeriCartella.filter((numero) =>
+    numeriEstratti.includes(numero)
+  );
+
+  if (completedNumbers.length === numeriCartella.length) {
+    showVictoryMessage();
+  }
+};
+
+// Funzione che mostra un messaggio di vittoria con una pizza casuale
+const showVictoryMessage = () => {
+  const victoryMessage = document.getElementById("victoryMessage");
+
+  // Scegli una pizza casuale
+  const randomPizza =
+    pizzaImages[Math.floor(Math.random() * pizzaImages.length)];
+
+  // Crea un'immagine della pizza
+  const pizzaImage = document.createElement("img");
+  pizzaImage.src = randomPizza;
+  pizzaImage.alt = "Pizza di vittoria";
+  pizzaImage.style.width = "200px"; // Puoi personalizzare la larghezza
+  pizzaImage.style.height = "200px"; // Puoi personalizzare l'altezza
+
+  // Aggiungi l'immagine della pizza al messaggio di vittoria
+  victoryMessage.innerHTML =
+    "<h1>Complimenti, sei il Re di tutti i Re! (o la Regina di tutti i regni...'nsomma, ci siamo capiti)</h1>";
+  victoryMessage.appendChild(pizzaImage);
+
+  // Mostra il messaggio di vittoria
+  victoryMessage.style.display = "block"; // Rendi visibile il messaggio
 };
 
 // Funzione che inizializza il gioco
@@ -123,6 +163,14 @@ const startGame = () => {
   const estrazioneButton = document.getElementById("randomNumbers");
   estrazioneButton.addEventListener("click", randomNumbers);
 };
+
+// Array di immagini di pizza
+const pizzaImages = [
+  "assetsmobile/pizza1.jpg", // Cambia con i percorsi delle immagini che vuoi usare
+  "assetsmobile/pizza2.jpg",
+  "assetsmobile/pizza3.jpg",
+  "assetsmobile/pizza4.png",
+];
 
 // Inizializza il gioco quando il documento è pronto
 document.addEventListener("DOMContentLoaded", startGame);
