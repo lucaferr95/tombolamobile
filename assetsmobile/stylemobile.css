@@ -17,16 +17,39 @@ main {
   height: auto;
 }
 
+/* Stile per il menu */
+header {
+  background-color: rgba(5, 0, 0, 9); /* Nero trasparente */
+  padding: 10px 0;
+}
+
+header ul {
+  display: flex; /* Usa flex per disporre orizzontalmente */
+  justify-content: center; /* Centra gli elementi nel menu */
+  padding: 0;
+  margin: 0;
+}
+
 header ul li {
   list-style: none;
   font-size: 1.1em;
-  display: inline-block;
-  padding: 0 40px;
+  padding: 0 20px;
+  text-align: center;
 }
 
 a {
   text-decoration: none;
-  color: #df658c;
+  color: #df658c; /* Colore per i link */
+  font-weight: bold;
+}
+
+a:hover {
+  color: #ffeb3b; /* Colore al passaggio del mouse */
+}
+
+/* Assicurati che "Contatti" sia allineato come le altre voci */
+header ul li:last-child {
+  margin-right: 0; /* Rimuovi margine a destra per l'ultimo elemento */
 }
 
 h1 {
@@ -66,10 +89,11 @@ h1 {
 h2 {
   color: red;
   font-style: normal;
+  font-size: medium;
 }
 
 p {
-  font-size: 30px;
+  font-size: 20px;
 }
 
 footer {
@@ -109,7 +133,7 @@ footer {
   font-weight: bold;
   font-style: oblique;
   color: rgb(0, 0, 0);
-  font-size: 20px;
+  font-size: 15px;
   text-shadow: 2px 2px 3px #fff, -2px -2px 3px #fff, 2px -2px 3px #fff,
     -2px 2px 3px #fff;
 }
@@ -199,7 +223,7 @@ footer {
 }
 
 .cellaCartella {
-  font-size: 15px;
+  font-size: 20px; /* Aumentato il font-size da 16px a 30px per ingrandire i numeri */
   font-weight: bold;
   text-align: center;
   width: 60px;
