@@ -42,6 +42,8 @@ const randomNumbers = () => {
   li.style.backgroundImage = "url('assetsmobile/pizza.png')";
   li.style.backgroundSize = "cover";
   li.style.backgroundPosition = "center";
+  li.style.height = "50px"; // Imposta un'altezza
+  li.style.width = "50px";
   numeriEstrattiList.appendChild(li);
 
   // Aggiungi la X sopra la cella della tombola corrispondente
