@@ -39,7 +39,7 @@ const randomNumbers = () => {
   const span = document.createElement("span");
   span.textContent = numeroCasuale;
   li.appendChild(span);
-  li.style.backgroundImage = "url('assets/pizzasticker.png')";
+  li.style.backgroundImage = "url('assetsmobile/pizza.png')";
   li.style.backgroundSize = "cover";
   li.style.backgroundPosition = "center";
   numeriEstrattiList.appendChild(li);
