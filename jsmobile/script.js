@@ -11,7 +11,7 @@ const createCartella = () => {
   cartella.classList.add("cartella");
 
   let numeriCartella = [];
-  while (numeriCartella.length < 5) {
+  while (numeriCartella.length < 3) {
     const numeroCasuale = Math.floor(Math.random() * 90) + 1;
     if (!numeriCartella.includes(numeroCasuale)) {
       numeriCartella.push(numeroCasuale);
@@ -97,6 +97,17 @@ const randomNumbers = () => {
   xMark.textContent = "X";
   if (cellaTombola) {
     cellaTombola.appendChild(xMark);
+  }
+
+  // Aggiungi la classe 'dot' alla cella della cartella corrispondente
+  const cellaCartella = document.querySelector(
+    `.cellaCartella[data-number='${numeroCasuale}']`
+  );
+
+  if (cellaCartella) {
+    const dot = document.createElement("div");
+    dot.classList.add("dot");
+    cellaCartella.appendChild(dot);
   }
 };
 
